@@ -1,3 +1,3 @@
-Punto1/build/
-Punto1/env/
-Punto1/redshift_module.egg-info/
+build
+env
+redshift_module.egg-info
