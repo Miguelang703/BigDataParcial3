@@ -7,10 +7,8 @@ from pyspark.sql.functions import col, conv, hex
 
 spark = SparkSession \
     .builder \
-    .appName("ProgramaSensores") \
+    .appName("Programita") \
     .getOrCreate()
-
-print('FUNCIONO')
 
 lines = spark \
     .readStream \
@@ -18,7 +16,6 @@ lines = spark \
     .option("kafka.bootstrap.servers","localhost:9092") \
     .option("subscribe","quickstart-events") \
     .load()
-print('FINALIZO')
 
 df=lines.withColumn("Price", conv(col("value"), 16, 16).cast("bigint"))
 df2=df.withColumn("PRICE1",df["PRICE"]).withColumn("PRICE2",df["PRICE"])

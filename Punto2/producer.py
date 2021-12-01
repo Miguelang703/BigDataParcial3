@@ -8,7 +8,7 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
 
 sc=spark.sparkContext
 sqlContext = SQLContext(sc)
-df= sqlContext.read.csv("ETL_Scraping_Kafla/Punto\ 2/SPY_TICK_TRADE.csv", header=True)
+df= sqlContext.read.csv("SPY_TICK_TRADE.csv", header=True)
 
 sample2 = df.rdd.map(lambda x: (x.PRICE))
 
